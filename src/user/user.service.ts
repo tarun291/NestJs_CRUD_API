@@ -15,7 +15,7 @@ export class UserService {
   async getAllUser(): Promise<IUser[]> {
     const users = await this.userModel.find();
     if (!users || users.length == 0) {
-      throw new NotFoundException('Students data not found!');
+      throw new NotFoundException('User data not found!');
     }
     return users;
   }
@@ -23,7 +23,7 @@ export class UserService {
   async getUser(userId: string): Promise<IUser> {
     const user = await this.userModel.findById(userId);
     if (!user) {
-      throw new NotFoundException(`Student #${userId} not found`);
+      throw new NotFoundException(`User #${userId} not found`);
     }
     return user;
   }
